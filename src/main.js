@@ -5,7 +5,6 @@ import 'normalize.css/normalize.css'
 
 // element-ui
 import ElementUI from 'element-ui'
-import './styles/element-variables.scss'
 import './styles/index.scss'
 
 import App from './App'

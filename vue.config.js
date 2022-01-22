@@ -12,7 +12,7 @@ module.exports = {
                 .use('sass-resources-loader')
                 .loader('sass-resources-loader')
                 .options({
-                    resources: 'src/styles/index.scss'
+                    resources: __dirname + '/src/styles/index.scss'
                 })
                 .end()
         })

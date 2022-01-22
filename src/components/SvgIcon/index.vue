@@ -1,7 +1,9 @@
 <template>
-    <svg>
-        <use :xlink:href="iconName"/>
-    </svg>
+    <div class="svg-icon-container">
+        <svg>
+            <use :xlink:href="iconName"/>
+        </svg>
+    </div>
 </template>
 
 <script>
@@ -21,6 +23,10 @@
     }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+    svg {
+        width: 1em;
+        height: 1em;
+        fill: currentColor;
+    }
 </style>
