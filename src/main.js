@@ -9,6 +9,7 @@ import './styles/element-variables.scss'
 import './styles/index.scss'
 
 import App from './App'
+import router from "./router"
 
 import './icons'
 
@@ -18,4 +19,5 @@ Vue.config.productionTip = false
 
 new Vue({
     render: h => h(App),
+    router
 }).$mount('#app')

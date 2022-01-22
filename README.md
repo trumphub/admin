@@ -16,3 +16,9 @@ npm install sass-resources-loader
 
 npm install svg-sprite-loader -D
 ```
+
+### 路由器
+
+```shell script
+npm install vue-router
+```
