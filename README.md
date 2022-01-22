@@ -1,24 +1,18 @@
-# admin
+### 搭建基本环境
 
-## Project setup
-```
-npm install
-```
+```shell script
+vue create admin
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+npm i js-cookie
 
-### Compiles and minifies for production
-```
-npm run build
-```
+npm install --save normalize.css
 
-### Lints and fixes files
-```
-npm run lint
-```
+npm i element-ui -S
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+https://github.com/webpack-contrib/sass-loader/releases/tag/v11.0.0
+npm install sass-loader@10.1.1
+npm install node-sass
+npm install sass-resources-loader
+
+npm install svg-sprite-loader -D
+```
