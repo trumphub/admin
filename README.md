@@ -22,3 +22,21 @@ npm install svg-sprite-loader -D
 ```shell script
 npm install vue-router
 ```
+
+### vuex
+
+```shell script
+npm install vuex --save
+```
+
+### axios
+
+```shell script
+npm install axios
+```
+
+### mock
+
+```shell script
+npm install mockjs
+```

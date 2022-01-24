@@ -5,5 +5,5 @@
  * @returns {boolean}
  */
 export function validUsername(username) {
-    return ['admin', 'editor'].indexOf(username.trim()) !== -1
+    return !!username.trim().length
 }

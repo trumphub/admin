@@ -5,6 +5,9 @@ function resolve(dir) {
 }
 
 module.exports = {
+    devServer: {
+        before: require('./mock')
+    },
     chainWebpack: config => {
         const oneOfsMap = config.module.rule('scss').oneOfs.store
         oneOfsMap.forEach(item => {

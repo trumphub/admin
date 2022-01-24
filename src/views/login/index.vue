@@ -85,7 +85,16 @@
                 this.$refs.loginForm.validate((valid) => {
                     if (valid) {
                         this.loading = true
-                        alert('submit!')
+                        this.$store.dispatch('user/login', this.loginForm)
+                            .then(() => {
+                                this.loading = false
+                                this.$router.push(
+                                    this.$route.query.redirect || '/'
+                                )
+                            })
+                            .catch(() => {
+                                this.loading = false
+                            })
                     } else {
                         console.log('error submit!!')
                         return false
