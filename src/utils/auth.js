@@ -3,7 +3,7 @@ import Cookie from 'js-cookie'
 const TokenKey = 'user-token'
 
 export function getToken() {
-    Cookie.get(TokenKey)
+    return Cookie.get(TokenKey)
 }
 
 export function setToken(token) {

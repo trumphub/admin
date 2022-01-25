@@ -1,5 +1,5 @@
 import {getToken, removeToken, setToken} from "../../utils/auth"
-import {login} from "../../api/user"
+import {login, getInfo} from "../../api/user"
 
 export default {
     namespaced: true,
@@ -24,6 +24,14 @@ export default {
             } catch (e) {
                 throw new Error(e)
             }
+        },
+        getInfo({commit}) {
+            return new Promise((resolve, reject) => {
+                getInfo().then(info => {
+                    commit('SET_INFO', info)
+                    resolve(info)
+                }).catch(reject)
+            })
         },
         resetToken({commit}) {
             return new Promise(resolve => {

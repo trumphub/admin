@@ -9,6 +9,12 @@ module.exports = {
         before: require('./mock')
     },
     chainWebpack: config => {
+        config.plugin('html')
+            .tap(args => {
+                args[0].title = 'vue Element Admin'
+                return args
+            })
+
         const oneOfsMap = config.module.rule('scss').oneOfs.store
         oneOfsMap.forEach(item => {
             item
