@@ -26,11 +26,11 @@ export default {
             }
         },
         getInfo({commit}) {
-            return new Promise((resolve, reject) => {
+            return new Promise(resolve => {
                 getInfo().then(info => {
                     commit('SET_INFO', info)
                     resolve(info)
-                }).catch(reject)
+                })
             })
         },
         resetToken({commit}) {

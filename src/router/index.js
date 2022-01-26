@@ -10,17 +10,39 @@ Vue.use(VueRouter)
 
 NProgress.configure({showSpinner: false})
 
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function (location, onResolve, onReject) {
+    if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject)
+    try {
+        return originalPush.call(this, location).catch(err => err)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+const originalReplace = VueRouter.prototype.replace
+VueRouter.prototype.replace = function (location, onResolve, onReject) {
+    if (onResolve || onReject) return originalReplace.call(this, location, onResolve, onReject)
+    try {
+        return originalReplace.call(this, location).catch(err => err)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const constantRoutes = [
     {
         path: '/login',
         component: () => import('../views/login'),
         meta: {
             notCertified: true
-        }
+        },
+        hidden: true
     },
     {
         path: '/404',
-        component: () => import('../views/error-page/404')
+        component: () => import('../views/error-page/404'),
+        hidden: true
     },
     {
         path: '/',
@@ -28,15 +50,7 @@ export const constantRoutes = [
     }
 ]
 
-export const asyncRoutes = [
-    {
-        path: '/406',
-        component: () => import('../views/error-page/404'),
-        meta: {
-            roles: ['admin']
-        }
-    }
-]
+export const asyncRoutes = []
 
 const createRouter = () => new VueRouter({
     mode: 'history',
@@ -50,8 +64,6 @@ const router = createRouter()
 
 router.beforeEach((to, from, next) => {
     NProgress.start()
-    // 修改标题
-    document.title = to.meta.title ? `${to.meta.title} - vue Element Admin` : 'vue Element Admin'
 
     const token = store.getters.token
 
@@ -68,17 +80,13 @@ router.beforeEach((to, from, next) => {
                     info => {
                         store.dispatch('permission/generateRoutes', info.roles)
                             .then(accessRoutes => {
-                                router.addRoutes(accessRoutes)
+                                accessRoutes.forEach(item => {
+                                    router.addRoute(item)
+                                })
                                 next({...to, replace: true})
                             })
                     }
-                ).catch(() => {
-                    store.dispatch('user/resetToken')
-                        .then(() => {
-                            next({path: '/login', query: {redirect: to.fullPath}})
-                            NProgress.done()
-                        })
-                })
+                )
             }
         }
     } else {

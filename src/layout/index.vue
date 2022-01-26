@@ -1,6 +1,9 @@
 <template>
     <div class="main-container">
         <Sidebar/>
+        <div class="main">
+
+        </div>
     </div>
 </template>
 
@@ -17,7 +20,12 @@
 
 <style lang="scss" scoped>
     .main-container {
+        display: flex;
         height: 100%;
-        background-color: aliceblue;
+
+        .main {
+            flex: 1;
+            background-color: rebeccapurple;
+        }
     }
 </style>
