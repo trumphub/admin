@@ -46,7 +46,44 @@ export const constantRoutes = [
     },
     {
         path: '/',
-        component: Layout
+        component: Layout,
+        redirect: '/dashboard',
+        children: [
+            {
+                path: 'dashboard',
+                component: () => import('../views/error-page/404'),
+                meta: {title: 'Dashboard', icon: 'dashboard'}
+            }
+        ]
+    },
+    {
+        path: '/hhh',
+        component: Layout,
+        children: [
+            {
+                path: '',
+                component: () => import('../views/error-page/404'),
+                meta: {title: 'hhh', icon: 'dashboard'}
+            }
+        ]
+    },
+    {
+        path: '/aaa',
+        component: Layout,
+        meta: {title: 'aaa', icon: 'dashboard'},
+        redirect: '/aaa/404',
+        children: [
+            {
+                path: '404',
+                component: () => import('../views/error-page/404'),
+                meta: {title: '404'}
+            },
+            {
+                path: '406',
+                component: () => import('../views/login'),
+                meta: {title: '406'}
+            }
+        ]
     }
 ]
 

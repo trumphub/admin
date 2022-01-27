@@ -2,17 +2,22 @@
     <div class="main-container">
         <Sidebar/>
         <div class="main">
-
+            <Navbar/>
+            <div class="main-body">
+                <router-view/>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
     import Sidebar from './Sidebar'
+    import Navbar from "./Navbar"
 
     export default {
         name: "Layout",
         components: {
+            Navbar,
             Sidebar
         }
     }
@@ -25,7 +30,11 @@
 
         .main {
             flex: 1;
-            background-color: rebeccapurple;
+            overflow: auto;
+
+            .main-body {
+                padding: 70px 20px 20px;
+            }
         }
     }
 </style>
