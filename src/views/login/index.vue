@@ -116,13 +116,14 @@
 <style scoped lang="scss">
     .login-container {
         height: 100%;
-        background-color: #eee;
+        @include theme(background-color);
         @include clear-fix;
 
         h1 {
             margin: 200px 0 40px;
             font-size: 26px;
             text-align: center;
+            @include theme(color);
         }
 
         .el-form {

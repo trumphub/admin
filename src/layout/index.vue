@@ -6,7 +6,6 @@
             <div class="main-body">
                 <router-view/>
             </div>
-            <ThemePicker/>
         </div>
     </div>
 </template>
@@ -14,14 +13,12 @@
 <script>
     import Sidebar from './Sidebar'
     import Navbar from "./Navbar"
-    import ThemePicker from "../components/ThemePicker"
 
     export default {
         name: "Layout",
         components: {
             Navbar,
-            Sidebar,
-            ThemePicker
+            Sidebar
         }
     }
 </script>
