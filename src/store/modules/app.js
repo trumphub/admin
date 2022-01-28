@@ -3,7 +3,8 @@ import Cookie from 'js-cookie'
 export default {
     namespaced: true,
     state: () => ({
-        // 0 open 1 close
+        // 0 false open
+        // 1 true close
         collapse: Cookie.get('collapse') ? !!+Cookie.get('collapse') : false
     }),
     mutations: {

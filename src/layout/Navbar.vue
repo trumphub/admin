@@ -1,5 +1,5 @@
 <template>
-    <div class="nav">
+    <div class="nav" :style="{width:_width}">
         <Hamburger :active="!collapse" @toggleClick="toggleClick"/>
         <el-breadcrumb separator="/">
             <template v-for="(item,index) in levelList">
@@ -11,7 +11,14 @@
                 </el-breadcrumb-item>
             </template>
         </el-breadcrumb>
-        <div></div>
+        <el-dropdown @command="handleCommand">
+            <img :src="info.avatar" alt="avatar">
+            <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item command="logout">
+                    注销
+                </el-dropdown-item>
+            </el-dropdown-menu>
+        </el-dropdown>
     </div>
 </template>
 
@@ -30,11 +37,24 @@
             Hamburger
         },
         computed: {
-            ...mapGetters(['collapse'])
+            ...mapGetters(['collapse', 'info']),
+            _width() {
+                return document.documentElement.clientWidth - (this.collapse ? 64 : 210) + 'px'
+            }
         },
         methods: {
             toggleClick() {
                 this.$store.dispatch('app/toggleSideBar')
+            },
+            async handleCommand(command) {
+                if (command === 'logout') {
+                    await this.$store.dispatch('user/logout')
+                    await this.$router.push({
+                        path: '/login', query: {
+                            redirect: this.$route.fullPath
+                        }
+                    })
+                }
             }
         },
         watch: {
@@ -72,13 +92,22 @@
     .nav {
         position: fixed;
         display: flex;
+        top: 0;
+        right: 0;
         height: 50px;
-        width: 100%;
         border-bottom: 1px solid #d8dce5;
         background-color: #ffffff;
+        transition: width .3s;
 
         .el-breadcrumb {
+            flex: 1;
             line-height: 50px;
+        }
+
+        img {
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
         }
     }
 </style>

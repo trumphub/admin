@@ -57,17 +57,6 @@ export const constantRoutes = [
         ]
     },
     {
-        path: '/hhh',
-        component: Layout,
-        children: [
-            {
-                path: '',
-                component: () => import('../views/error-page/404'),
-                meta: {title: 'hhh', icon: 'dashboard'}
-            }
-        ]
-    },
-    {
         path: '/aaa',
         component: Layout,
         meta: {title: 'aaa', icon: 'dashboard'},
@@ -87,7 +76,23 @@ export const constantRoutes = [
     }
 ]
 
-export const asyncRoutes = []
+export const asyncRoutes = [
+    {
+        path: '/hhh',
+        component: Layout,
+        children: [
+            {
+                path: '',
+                component: () => import('../views/error-page/404'),
+                meta: {
+                    title: 'hhh',
+                    icon: 'dashboard',
+                    roles: ['admin']
+                }
+            }
+        ]
+    }
+]
 
 const createRouter = () => new VueRouter({
     mode: 'history',

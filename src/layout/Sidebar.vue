@@ -1,5 +1,5 @@
 <template>
-    <div :class="{'side-bar-container':true,close:!!collapse}">
+    <div class="side-bar-container" :class="{close:collapse}">
         <el-scrollbar>
             <el-menu
                     :default-active="$route.path"
