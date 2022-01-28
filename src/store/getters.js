@@ -10,5 +10,8 @@ export default {
     },
     permission_routes(state) {
         return state.permission.routes
+    },
+    theme(state) {
+        return state.app.theme
     }
 }

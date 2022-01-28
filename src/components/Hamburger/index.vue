@@ -12,7 +12,7 @@
 
 <script>
     export default {
-        name: "index",
+        name: "Hamburger",
         props: {
             active: {
                 type: Boolean,

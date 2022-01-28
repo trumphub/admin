@@ -137,7 +137,7 @@
         .svg-icon-container {
             width: 50px;
             font-size: 12px;
-            color: $--color-primary;
+            @include theme('color');
         }
     }
 </style>

@@ -9,3 +9,32 @@
     clear: both;
   }
 }
+
+// 亮
+$light-theme: (
+        background-color:#fff,
+        border-color:#008080,
+        color:#333
+);
+
+// 暗
+$dark-theme: (
+        background-color:#eee,
+        border-color:#545c64,
+        color:#ccc
+);
+
+// 所有主题
+$themes: (
+        light-theme:$light-theme,
+        dark-theme:$dark-theme
+);
+
+// 生成主题
+@mixin theme($key) {
+  @each $themeName, $theme in $themes {
+    [data-theme = #{$themeName}] & {
+      #{$key}: map_get($theme, $key);
+    }
+  }
+}

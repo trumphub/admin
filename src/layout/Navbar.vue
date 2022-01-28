@@ -1,5 +1,5 @@
 <template>
-    <div class="nav" :style="{width:_width}">
+    <div class="nav" :class="{withAnimation}" :style="{width:_width}">
         <Hamburger :active="!collapse" @toggleClick="toggleClick"/>
         <el-breadcrumb separator="/">
             <template v-for="(item,index) in levelList">
@@ -30,7 +30,8 @@
         name: "Navbar",
         data() {
             return {
-                levelList: []
+                levelList: [],
+                withAnimation: true
             }
         },
         components: {
@@ -39,12 +40,16 @@
         computed: {
             ...mapGetters(['collapse', 'info']),
             _width() {
-                return document.documentElement.clientWidth - (this.collapse ? 64 : 210) + 'px'
+                return `calc(100vw - ${this.collapse ? 64 : 210}px)`
             }
         },
         methods: {
             toggleClick() {
+                this.withAnimation = true
                 this.$store.dispatch('app/toggleSideBar')
+            },
+            resize() {
+                this.withAnimation = false
             },
             async handleCommand(command) {
                 if (command === 'logout') {
@@ -84,6 +89,12 @@
                     this.levelList = levelList
                 }
             }
+        },
+        mounted() {
+            window.addEventListener('resize', this.resize)
+        },
+        beforeDestroy() {
+            window.removeEventListener('resize', this.resize)
         }
     }
 </script>
@@ -96,8 +107,13 @@
         right: 0;
         height: 50px;
         border-bottom: 1px solid #d8dce5;
-        background-color: #ffffff;
-        transition: width .3s;
+        @include theme(border-color);
+        @include theme(background-color);
+        @include theme(color);
+
+        &.withAnimation {
+            transition: width .3s;
+        }
 
         .el-breadcrumb {
             flex: 1;
