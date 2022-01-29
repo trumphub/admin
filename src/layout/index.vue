@@ -4,7 +4,11 @@
         <div class="main">
             <Navbar/>
             <div class="main-body">
-                <router-view/>
+                <transition name="fade" mode="out-in">
+                    <keep-alive>
+                        <router-view/>
+                    </keep-alive>
+                </transition>
             </div>
         </div>
     </div>
@@ -30,7 +34,9 @@
 
         .main {
             flex: 1;
-            overflow: auto;
+            background-color: #f0f2f5;
+            overflow-x: hidden;
+            overflow-y: auto;
 
             .main-body {
                 padding: 70px 20px 20px;

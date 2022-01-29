@@ -102,6 +102,7 @@
 <style scoped lang="scss">
     .nav {
         position: fixed;
+        z-index: 9;
         display: flex;
         top: 0;
         right: 0;
