@@ -2,12 +2,36 @@
     <div>
         <panel-group @handleClick="handleClick"/>
         <line-chart :chart-data="chartData"/>
+        <el-row :gutter="32">
+            <el-col :xs="24" :sm="24" :lg="8">
+                <raddar-chart/>
+            </el-col>
+            <el-col :xs="24" :sm="24" :lg="8">
+                <pie-chart/>
+            </el-col>
+            <el-col :xs="24" :sm="24" :lg="8">
+                <bar-chart/>
+            </el-col>
+        </el-row>
+        <el-row :gutter="8">
+            <el-col :xs="24" :sm="24" :md="24" :lg="12">
+                <transaction-table/>
+            </el-col>
+            <el-col :xs="24" :sm="12" :md="12" :lg="6">
+            </el-col>
+            <el-col :xs="24" :sm="12" :md="12" :lg="6">
+            </el-col>
+        </el-row>
     </div>
 </template>
 
 <script>
     import PanelGroup from "../../../components/PanelGroup"
     import LineChart from "../../../components/LineChart"
+    import RaddarChart from "../../../components/RaddarChart"
+    import PieChart from "../../../components/PieChart"
+    import BarChart from "../../../components/BarChart"
+    import TransactionTable from "../../../components/TransactionTable";
 
     const lineChartData = {
         peoples: {
@@ -36,6 +60,10 @@
             }
         },
         components: {
+            TransactionTable,
+            BarChart,
+            PieChart,
+            RaddarChart,
             LineChart,
             PanelGroup
         },

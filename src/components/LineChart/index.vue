@@ -4,16 +4,13 @@
 
 <script>
     import * as echarts from 'echarts'
-    import debounce from 'lodash/debounce'
+    import resize from "../../mixins/resize"
 
     export default {
+        mixins: [resize],
         name: "LineChart",
         mounted() {
             this.$nextTick(this.initChart)
-        },
-        beforeDestroy() {
-            window.removeEventListener('resize', this.resizeChart)
-            delete this.resizeChart
         },
         props: {
             chartData: {
@@ -33,15 +30,6 @@
             initChart() {
                 this.chart = echarts.init(this.$el)
                 this.setOption(this.chartData)
-                this.resizeChart = this.resizeChart || debounce(() => {
-                    this.chart.resize({
-                        animation: {
-                            duration: 100,
-                            easing: 'linear'
-                        }
-                    })
-                }, 100)
-                window.addEventListener('resize', this.resizeChart)
             },
             setOption({expectedData, actualData}) {
                 this.chart.setOption({
