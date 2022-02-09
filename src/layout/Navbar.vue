@@ -70,7 +70,7 @@
                     let levelList = null
                     const pathArr = route.path.split('/')
                     pathArr.shift()
-                    if (pathArr.length === 1) {
+                    if (pathArr.length === 1 || pathArr[1] === 'index') {
                         levelList = [{
                             title: route.meta.title,
                             id: 0
