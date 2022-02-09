@@ -18,8 +18,10 @@
                 <transaction-table/>
             </el-col>
             <el-col :xs="24" :sm="12" :md="12" :lg="6">
+                <todo-list/>
             </el-col>
             <el-col :xs="24" :sm="12" :md="12" :lg="6">
+                <box-card/>
             </el-col>
         </el-row>
     </div>
@@ -32,6 +34,8 @@
     import PieChart from "../../../components/PieChart"
     import BarChart from "../../../components/BarChart"
     import TransactionTable from "../../../components/TransactionTable";
+    import TodoList from "../../../components/TodoList";
+    import BoxCard from "../../../components/BoxCard/index";
 
     const lineChartData = {
         peoples: {
@@ -60,6 +64,8 @@
             }
         },
         components: {
+            BoxCard,
+            TodoList,
             TransactionTable,
             BarChart,
             PieChart,
