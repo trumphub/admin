@@ -13,7 +13,7 @@
                     <div v-if="!route.hidden" :key="route.path">
                         <el-submenu
                                 :index="route.path"
-                                v-if="route.children&&route.children.length>1">
+                                v-if="route.children&&(route.children.length>1||route.alwaysShow)">
                             <template slot="title">
                                 <i v-if="route.meta.icon.includes('el-icon')" :class="route.meta.icon"/>
                                 <svg-icon v-else :icon-class="route.meta.icon"/>
