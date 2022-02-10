@@ -1,7 +1,7 @@
 <template>
     <div class="nav" :class="{withAnimation}" :style="{width:_width}">
-        <Hamburger :active="!collapse" @toggleClick="toggleClick"/>
-        <el-breadcrumb separator="/">
+        <Hamburger id="hamburger-container" :active="!collapse" @toggleClick="toggleClick"/>
+        <el-breadcrumb id="breadcrumb-container" separator="/">
             <template v-for="(item,index) in levelList">
                 <el-breadcrumb-item v-if="index+1===levelList.length" :key="item.id">
                     {{item.title}}
@@ -101,7 +101,7 @@
 
 <style scoped lang="scss">
     .nav {
-        position: fixed;
+        position: absolute;
         z-index: 9;
         display: flex;
         top: 0;

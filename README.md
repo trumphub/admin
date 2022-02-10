@@ -99,3 +99,23 @@ function changeTheme(val) {
     this.$store.commit('app/SET_THEME', theme)
 }
 ```
+
+### 解决 Vue Element Admin 切换路由修改窗口大小后再次回到 dashboard 页后 echarts 错位的问题
+
+```javascript
+export default {
+    activated() {
+        this.activate = true
+        this.resizeChart()
+    },
+    deactivated() {
+        this.activate = false
+    }
+}
+```
+
+### 解决 Vue Element Admin 导航页 Nav Fixed 后 driver.js 不能呈现内容
+
+```text
+使用绝对定位模拟固定定位
+```
