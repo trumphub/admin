@@ -9,7 +9,6 @@ export default {
         }
     },
     mounted() {
-        console.log('mounted()')
         this.resizeChart = this.resizeChart || debounce(() => {
             (this.chart && this.activate) && this.chart.resize({
                 animation: {
