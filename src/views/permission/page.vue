@@ -1,5 +1,5 @@
 <template>
-    <switch-roles @change="handleRolesChange"/>
+    <switch-roles/>
 </template>
 
 <script>
@@ -7,11 +7,6 @@
 
     export default {
         name: "Page",
-        components: {SwitchRoles},
-        methods: {
-            handleRolesChange() {
-                this.$router.push({path: '/'})
-            }
-        }
+        components: {SwitchRoles}
     }
 </script>
