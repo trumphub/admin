@@ -138,6 +138,18 @@ export const asyncRoutes = [
             }
         ]
     },
+    {
+        path: '/icon',
+        component: Layout,
+        redirect: "/icon/index",
+        children: [
+            {
+                path: 'index',
+                component: () => import('../views/icons'),
+                meta: {title: 'Icons', icon: 'icon'}
+            }
+        ]
+    },
     {path: '*', redirect: '/404', hidden: true}
 ]
 
