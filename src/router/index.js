@@ -150,6 +150,27 @@ export const asyncRoutes = [
             }
         ]
     },
+    {
+        path: '/components',
+        component: Layout,
+        redirect: '/components/tinymce',
+        meta: {
+            title: 'Components',
+            icon: 'component'
+        },
+        children: [
+            {
+                path: 'tinymce',
+                component: () => import('../views/components/tinymce'),
+                meta: {title: 'Tinymce'}
+            },
+            {
+                path: 'markdown',
+                component: () => import('../views/components/markdown'),
+                meta: {title: 'Markdown'}
+            }
+        ]
+    },
     {path: '*', redirect: '/404', hidden: true}
 ]
 
