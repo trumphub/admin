@@ -5,6 +5,7 @@
                 :init="init"
                 v-model="content"
         />
+        <div v-html="content"></div>
     </div>
 </template>
 
@@ -25,7 +26,8 @@
                     height: 500,
                     language: 'zh_CN',
                     plugins: 'image',
-                    images_upload_url: process.env.VUE_APP_BASE_API + '/upload'
+                    images_upload_url: process.env.VUE_APP_BASE_API + '/upload',
+                    images_upload_base_path: "http://localhost:8081"
                 },
                 key: 'tliupoiax18eh94bmtn1onf82b6cwes3ygkpj0x2ivvrfk4i',
                 content: ''
