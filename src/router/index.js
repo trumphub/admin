@@ -168,6 +168,11 @@ export const asyncRoutes = [
                 path: 'markdown',
                 component: () => import('../views/components/markdown'),
                 meta: {title: 'Markdown'}
+            },
+            {
+                path: 'json-editor',
+                component: () => import('../views/components/json-editor'),
+                meta: {title: 'JSON Editor'}
             }
         ]
     },
