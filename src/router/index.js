@@ -80,24 +80,6 @@ export const constantRoutes = [
                 meta: {title: 'Guide', icon: 'guide'}
             }
         ]
-    },
-    {
-        path: '/aaa',
-        component: Layout,
-        meta: {title: 'aaa', icon: 'dashboard'},
-        redirect: '/aaa/404',
-        children: [
-            {
-                path: '404',
-                component: () => import('../views/error-page/404'),
-                meta: {title: '404'}
-            },
-            {
-                path: '406',
-                component: () => import('../views/login'),
-                meta: {title: '406'}
-            }
-        ]
     }
 ]
 
@@ -173,6 +155,11 @@ export const asyncRoutes = [
                 path: 'json-editor',
                 component: () => import('../views/components/json-editor'),
                 meta: {title: 'JSON Editor'}
+            },
+            {
+                path: 'split-pane',
+                component: () => import('../views/components/split-pane'),
+                meta: {title: 'SplitPane'}
             }
         ]
     },
