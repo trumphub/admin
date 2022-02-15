@@ -160,6 +160,11 @@ export const asyncRoutes = [
                 path: 'split-pane',
                 component: () => import('../views/components/split-pane'),
                 meta: {title: 'SplitPane'}
+            },
+            {
+                path: 'avatar-upload',
+                component: () => import('../views/components/avatar-upload'),
+                meta: {title: 'Upload'}
             }
         ]
     },
