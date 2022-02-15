@@ -165,6 +165,11 @@ export const asyncRoutes = [
                 path: 'avatar-upload',
                 component: () => import('../views/components/avatar-upload'),
                 meta: {title: 'Upload'}
+            },
+            {
+                path: 'dropzone',
+                component: () => import('../views/components/dropzone'),
+                meta: {title: 'Dropzone'}
             }
         ]
     },
