@@ -170,6 +170,11 @@ export const asyncRoutes = [
                 path: 'dropzone',
                 component: () => import('../views/components/dropzone'),
                 meta: {title: 'Dropzone'}
+            },
+            {
+                path: 'sticky',
+                component: () => import('../views/components/sticky'),
+                meta: {title: 'Sticky'}
             }
         ]
     },
