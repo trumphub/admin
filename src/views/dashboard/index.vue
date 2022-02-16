@@ -1,5 +1,5 @@
 <template>
-    <component :is="currentComponent"/>
+    <component v-if="this.info.roles" :is="currentComponent"/>
 </template>
 
 <script>
@@ -12,7 +12,7 @@
         computed: {
             ...mapGetters(['info']),
             currentComponent() {
-                return this.info.roles.includes('admin')
+                return this.info.roles?.includes('admin')
                     ? 'Admin' : 'Editor'
             }
         },

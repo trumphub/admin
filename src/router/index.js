@@ -175,6 +175,16 @@ export const asyncRoutes = [
                 path: 'sticky',
                 component: () => import('../views/components/sticky'),
                 meta: {title: 'Sticky'}
+            },
+            {
+                path: 'count-to',
+                component: () => import('../views/components/count-to'),
+                meta: {title: 'Count To'}
+            },
+            {
+                path: 'mixin',
+                component: () => import('../views/components/mixin'),
+                meta: {title: 'Component Mixin'}
             }
         ]
     },

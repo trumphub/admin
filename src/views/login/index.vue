@@ -2,6 +2,7 @@
     <div class="login-container">
         <h1>登录页面</h1>
         <el-form
+                @keyup.native.enter="handleLogin"
                 ref="loginForm"
                 :model="loginForm"
                 :rules="loginRules"
