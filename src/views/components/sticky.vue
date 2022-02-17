@@ -92,7 +92,7 @@
     import MySticky from '../../components/Sticky'
 
     export default {
-        name: "Sticky",
+        name: "StickyDemo",
         data() {
             return {
                 platforms: ['a-platform'],

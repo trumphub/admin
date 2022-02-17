@@ -185,6 +185,16 @@ export const asyncRoutes = [
                 path: 'mixin',
                 component: () => import('../views/components/mixin'),
                 meta: {title: 'Component Mixin'}
+            },
+            {
+                path: 'back-to-top',
+                component: () => import('../views/components/back-to-top'),
+                meta: {title: 'Back To Top'}
+            },
+            {
+                path: 'drag-dialog',
+                component: () => import('../views/components/drag-dialog'),
+                meta: {title: 'Drag Dialog'}
             }
         ]
     },
