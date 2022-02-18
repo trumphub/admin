@@ -198,6 +198,32 @@ export const asyncRoutes = [
             }
         ]
     },
+    {
+        path: '/charts',
+        component: Layout,
+        redirect: '/charts/keyboard',
+        meta: {
+            title: 'Charts',
+            icon: 'chart'
+        },
+        children: [
+            {
+                path: 'keyboard',
+                component: () => import('../views/charts/keyboard'),
+                meta: {title: 'Keyboard Chart'}
+            },
+            {
+                path: 'line',
+                component: () => import('../views/charts/line'),
+                meta: {title: 'Line Chart'}
+            },
+            {
+                path: 'mix-chart',
+                component: () => import('../views/charts/mix-chart'),
+                meta: {title: 'Mix Chart'}
+            }
+        ]
+    },
     {path: '*', redirect: '/404', hidden: true}
 ]
 
