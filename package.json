@@ -28,6 +28,7 @@
     "sass-loader": "^10.1.1",
     "sass-resources-loader": "^2.2.4",
     "script-loader": "^0.7.2",
+    "sortablejs": "^1.14.0",
     "tinymce": "^5.10.3",
     "vue": "^2.6.11",
     "vue-count-to": "^1.0.13",

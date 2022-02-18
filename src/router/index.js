@@ -224,6 +224,23 @@ export const asyncRoutes = [
             }
         ]
     },
+    {
+        path: '/table',
+        component: Layout,
+        redirect: '/table/dynamic-table',
+        alwaysShow: true,
+        meta: {
+            title: 'Table',
+            icon: 'table'
+        },
+        children: [
+            {
+                path: 'dynamic-table',
+                component: () => import('../views/table/dynamic-table'),
+                meta: {title: 'Dynamic Table'}
+            }
+        ]
+    },
     {path: '*', redirect: '/404', hidden: true}
 ]
 
