@@ -228,7 +228,6 @@ export const asyncRoutes = [
         path: '/table',
         component: Layout,
         redirect: '/table/dynamic-table',
-        alwaysShow: true,
         meta: {
             title: 'Table',
             icon: 'table'
@@ -238,6 +237,11 @@ export const asyncRoutes = [
                 path: 'dynamic-table',
                 component: () => import('../views/table/dynamic-table'),
                 meta: {title: 'Dynamic Table'}
+            },
+            {
+                path: 'complex-table',
+                component: () => import('../views/table/complex-table'),
+                meta: {title: 'Complex Table'}
             }
         ]
     },
