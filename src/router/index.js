@@ -245,6 +245,34 @@ export const asyncRoutes = [
             }
         ]
     },
+    {
+        path: '/example',
+        component: Layout,
+        redirect: '/example/list',
+        meta: {
+            title: 'Example',
+            icon: 'el-icon-s-help'
+        },
+        children: [
+            {
+                path: 'list',
+                component: () => import('../views/example/list'),
+                meta: {title: 'Article List'}
+            },
+            {
+                path: 'create',
+                component: () => import('../views/example/create'),
+                meta: {title: 'Create Article'}
+            },
+            {
+                path: 'edit/:id',
+                component: () => import('../views/example/edit'),
+                name: 'EditArticle',
+                meta: {title: 'Edit Article'},
+                hidden: true
+            }
+        ]
+    },
     {path: '*', redirect: '/404', hidden: true}
 ]
 

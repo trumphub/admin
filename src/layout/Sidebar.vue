@@ -23,7 +23,7 @@
                                     v-for="child in route.children"
                                     :key="child.path"
                                     :to="route.path+'/'+child.path">
-                                <el-menu-item :index="route.path+'/'+child.path">
+                                <el-menu-item :index="route.path+'/'+child.path" v-if="!child.hidden">
                                     {{child.meta.title}}
                                 </el-menu-item>
                             </router-link>
