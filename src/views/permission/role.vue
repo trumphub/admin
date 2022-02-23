@@ -63,7 +63,7 @@
 </template>
 
 <script>
-    import {getRoles, getRoutes, addRole, updateRole, deleteRole} from "../../api/role";
+    import {getRoles, getRoutes, addRole, updateRole, deleteRole} from "@/api/role";
     import cloneDeep from 'lodash/cloneDeep'
 
     export default {

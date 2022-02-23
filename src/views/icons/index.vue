@@ -32,7 +32,7 @@
 <script>
     import svgIcons from './svg-icons'
     import elementIcons from './element-icons'
-    import handleClipboard from '../../utils/clipboard'
+    import handleClipboard from '@/utils/clipboard'
 
     export default {
         name: "Icons",

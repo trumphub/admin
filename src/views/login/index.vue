@@ -45,7 +45,7 @@
 </template>
 
 <script>
-    import {validUsername} from "../../utils/validate"
+    import {validUsername} from "@/utils/validate"
 
     export default {
         name: "Login",
@@ -68,8 +68,8 @@
                 loading: false,
                 passwordType: 'password',
                 loginForm: {
-                    username: '',
-                    password: ''
+                    username: 'admin',
+                    password: '111111'
                 },
                 loginRules: {
                     username: [

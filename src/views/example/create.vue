@@ -1,10 +1,15 @@
 <template>
-    <div>Create</div>
+    <div>
+        <article-detail/>
+    </div>
 </template>
 
 <script>
+    import ArticleDetail from "@/components/ArticleDetail";
+
     export default {
-        name: "Create"
+        name: "Create",
+        components: {ArticleDetail}
     }
 </script>
 

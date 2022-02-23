@@ -1,4 +1,14 @@
 const {Router} = require("express")
+const Mock = require('mockjs')
+
+const NameList = []
+
+for (let i = 0; i < 100; i++) {
+    NameList.push(Mock.mock({
+        name: '@first'
+    }))
+}
+NameList.push({name: 'mock-Pan'})
 
 const router = Router()
 
@@ -21,6 +31,15 @@ const USERS = {
         name: 'Normal Editor'
     }
 }
+
+router.get('/user/search', (req, res) => {
+    const {name} = req.query
+    const mockNameList = NameList.filter(item => {
+        const lowerCaseName = item.name.toLowerCase()
+        return !(name && lowerCaseName.indexOf(name.toLowerCase()) < 0)
+    })
+    res.json({data: mockNameList, code: 20000})
+})
 
 /**
  * 登录

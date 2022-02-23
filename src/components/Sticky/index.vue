@@ -48,7 +48,7 @@
         },
         destroyed() {
             this.containerEl.removeEventListener('scroll', this.handleScroll)
-            window.containerEl.removeEventListener('resize', this.handleResize)
+            window.removeEventListener('resize', this.handleResize)
         },
         methods: {
             handleScroll() {

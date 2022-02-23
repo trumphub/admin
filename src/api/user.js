@@ -21,3 +21,13 @@ export function logout() {
         method: 'POST'
     })
 }
+
+export function searchUser(name) {
+    return request({
+        url: '/user/search',
+        params: {
+            name
+        },
+        method: 'GET'
+    })
+}

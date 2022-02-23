@@ -32,19 +32,15 @@
 
             <el-table-column min-width="300px" label="Title">
                 <template slot-scope="{row}">
-                    <router-link :to="'/example/edit/'+row.id">
-                        <span>{{ row.title }}</span>
-                    </router-link>
+                    <span @click="toEditPage(row.id)">{{ row.title }}</span>
                 </template>
             </el-table-column>
 
             <el-table-column align="center" label="Actions" width="120">
                 <template slot-scope="scope">
-                    <router-link :to="'/example/edit/'+scope.row.id">
-                        <el-button type="primary" size="small" icon="el-icon-edit">
-                            Edit
-                        </el-button>
-                    </router-link>
+                    <el-button @click="toEditPage(scope.row.id)" type="primary" size="small" icon="el-icon-edit">
+                        Edit
+                    </el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -97,6 +93,9 @@
                 this.list = items
                 this.total = total
                 this.listLoading = false
+            },
+            toEditPage(id) {
+                this.$router.push({name: 'EditArticle', params: {id}})
             }
         },
         mounted() {
